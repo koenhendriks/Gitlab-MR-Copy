@@ -1,0 +1,30 @@
+{
+    "manifest_version": 3,
+    "name": "GitLab MR Title Copier",
+    "version": "1.2",
+    "description": "Adds a button to copy the MR title with the URL linked on GitLab MR pages and the Tags page.",
+    "action": {
+        "default_popup": "popup.html",
+        "default_icon": "icon.png"
+    },
+    "permissions": [
+        "storage"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "icons": {
+        "16": "icon16.png",
+        "32": "icon32.png",
+        "48": "icon48.png",
+        "128": "icon.png"
+    },
+    "content_scripts": [
+        {
+            "world": "ISOLATED",
+            "matches": ["*://*/*merge_requests*/*", "*://*/*tags"],
+            "js": ["content.js"],
+            "run_at": "document_idle"
+        }
+    ]
+}
