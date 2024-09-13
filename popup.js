@@ -4,19 +4,15 @@ document.addEventListener('DOMContentLoaded', function () {
     const showTagCopy = document.getElementById('show-tag-copy');
 
     // Load the saved states from local storage when popup opens
-    chrome.storage.local.get(['hideBypass'], function (result) {
+    chrome.storage.local.get(['hideBypass', 'showTitle', 'showTag'], function (result) {
         console.debug('hide-bypass', result.hideBypass);
-        bypassCheckbox.checked = result.hideBypass || false;
-    });
+        bypassCheckbox.checked = result.hideBypass;
 
-    chrome.storage.local.get(['showTitle'], function (result) {
         console.debug('showTitle', result.showTitle);
-        showTitleCheckbox.checked = result.showTitle || false;
-    });
+        showTitleCheckbox.checked = result.showTitle;
 
-    chrome.storage.local.get(['showTag'], function (result) {
         console.debug('showTag', result.showTag);
-        showTagCopy.checked = result.showTag || false;
+        showTagCopy.checked = result.showTag;
     });
 
     // Save the checkbox states to local storage when toggled
