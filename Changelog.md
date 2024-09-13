@@ -8,6 +8,7 @@
   - `Hide Bypass button` - Hides the bypass button from the merge request page.
   - `Show title copy button` - Add copy button to the title of the merge request. 
   - `Show tag copy button` - Add copy button to the tags on the tags page.
+  
 ## 1.2
 - Fixed bug where the copy button became invisible on both the MR and tags page.
 
