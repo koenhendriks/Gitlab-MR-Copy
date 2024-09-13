@@ -7,9 +7,28 @@ For more information see https://gitlab-mr-copy.koenhendriks.com/
 
 Each feature can be toggled on or off in the extension popup.
 
-- Add a button to GitLab MR pages to copy the title and URL in Rich text format with a single click (with Markdown fallback).
-- Add a button to GitLab Tags pages to copy the tag name and URL in Rich text format with a single click (with Markdown fallback).
-- Hides the 'Bypass button' from the MR page that shouldn't be used.
+### Add a copy button to GitLab MR pages to copy the title and URL 
+
+This is done in Rich text format with a single click (with Markdown fallback).
+
+![screenshot.png](screenshot.png)
+
+
+### Add a button to GitLab Tags pages to copy the tag name and URL 
+
+This is done in Rich text format with a single click (with Markdown fallback).   
+
+![screenshot1.png](screenshot1.png)
+
+### Hides the 'Bypass button' from the MR page that shouldn't be used.
+
+This is done by default and can be toggled on or off in the extension popup.
+
+### Before
+![screenshot2-before.png](screenshot2-before.png)
+
+### After
+![screenshot2-after.png](screenshot2-after.png)
 
 ## Installation
 
