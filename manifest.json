@@ -1,7 +1,7 @@
 {
     "manifest_version": 3,
-    "name": "GitLab MR Title Copier",
-    "version": "1.3",
+    "name": "MR Title Copier for git software",
+    "version": "1.4",
     "description": "Adds a button to copy the MR title with the URL linked on GitLab MR pages and the Tags page. Hides a MR bypass button.",
     "action": {
         "default_popup": "popup.html",

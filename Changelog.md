@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.4
+
+- Changed Logo and updated name to prevent unauthorized use of GitLab intellectual property.
+
 ## 1.3
 - Added feature that hides the 'bypass' button from merge request with suggested changes. 
   - See [Bypass a request for changes](https://docs.gitlab.com/ee/user/project/merge_requests/reviews/index.html#bypass-a-request-for-changes) for more info.
