@@ -111,6 +111,10 @@ window.addEventListener('load', () => {
 
     }
 
+    function changeAutoMergeStyle() {
+
+    }
+
 
     (async () => {
         const response = await chrome.runtime.sendMessage({action: "settings"});
@@ -123,7 +127,8 @@ window.addEventListener('load', () => {
             settings = {
                 showTitle: true,
                 hideBypass: true,
-                showTag: true
+                showTag: true,
+                autoMergeSecondary: true,
             };
         } else {
             settings = response.result;
@@ -135,6 +140,11 @@ window.addEventListener('load', () => {
             if(settings.showTitle){
                 console.debug('adding copy title button');
                 addCopyButtonMR();
+            }
+
+            if(settings.autoMergeSecondary){
+                console.debug('Changing auto merge button to be in secondary style.');
+                changeAutoMergeStyle();
             }
 
             if(settings.hideBypass){
