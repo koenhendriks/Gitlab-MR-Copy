@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.5
+
+- Add option to change the style of the set-auto merge button. See PR  [#1](https://github.com/koenhendriks/Gitlab-MR-Copy/pull/1)
+
 ## 1.4
 
 - Changed Logo and updated name to prevent unauthorized use of GitLab intellectual property.
