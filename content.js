@@ -112,6 +112,22 @@ window.addEventListener('load', () => {
     }
 
     function changeAutoMergeStyle() {
+        // Using a mutation observer to watch for changes in the document as Gitlab renders the MR buttons after the initial load
+        const observer = new MutationObserver((mutationsList, observer) => {
+            const autoMergeButton = document.querySelector('[data-testid="merge-button"]');
+
+            if (autoMergeButton) {
+                const internalSpan = autoMergeButton.querySelector('.gl-button-text')
+                if(internalSpan && internalSpan.innerText === 'Set to auto-merge'){
+                    console.debug('found auto-merge button', autoMergeButton, internalSpan);
+                    autoMergeButton.classList.remove('btn-confirm');
+                }
+                observer.disconnect();
+            }
+
+        });
+
+        observer.observe(document.body, { childList: true, subtree: true });
 
     }
 
