@@ -111,6 +111,26 @@ window.addEventListener('load', () => {
 
     }
 
+    function changeAutoMergeStyle() {
+        // Using a mutation observer to watch for changes in the document as Gitlab renders the MR buttons after the initial load
+        const observer = new MutationObserver((mutationsList, observer) => {
+            const autoMergeButton = document.querySelector('[data-testid="merge-button"]');
+
+            if (autoMergeButton) {
+                const internalSpan = autoMergeButton.querySelector('.gl-button-text')
+                if(internalSpan && internalSpan.innerText === 'Set to auto-merge'){
+                    console.debug('found auto-merge button', autoMergeButton, internalSpan);
+                    autoMergeButton.classList.remove('btn-confirm');
+                }
+                observer.disconnect();
+            }
+
+        });
+
+        observer.observe(document.body, { childList: true, subtree: true });
+
+    }
+
 
     (async () => {
         const response = await chrome.runtime.sendMessage({action: "settings"});
@@ -123,7 +143,8 @@ window.addEventListener('load', () => {
             settings = {
                 showTitle: true,
                 hideBypass: true,
-                showTag: true
+                showTag: true,
+                autoMergeSecondary: true,
             };
         } else {
             settings = response.result;
@@ -135,6 +156,11 @@ window.addEventListener('load', () => {
             if(settings.showTitle){
                 console.debug('adding copy title button');
                 addCopyButtonMR();
+            }
+
+            if(settings.autoMergeSecondary){
+                console.debug('Changing auto merge button to be in secondary style.');
+                changeAutoMergeStyle();
             }
 
             if(settings.hideBypass){
