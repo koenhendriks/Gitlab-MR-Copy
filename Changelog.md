@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.6
+- Fix bug where the copy button was not injected on the merge request page.
+- Fix bug that caused to copy an old title when the title was changed after the copy button was injected (such as `'Draft:'` being removed).
+- Fix visual bug where the copy button was not aligned properly with the title on the merge request page.
+
 ## 1.5
 
 - Add option to change the style of the set-auto merge button. See PR  [#1](https://github.com/koenhendriks/Gitlab-MR-Copy/pull/1)
