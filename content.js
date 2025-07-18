@@ -13,7 +13,6 @@ window.addEventListener('load', () => {
         console.log("URL:", mrUrl);
 
         if (mrTitleElement && !document.getElementById('copy-mr-button')) {
-            const mrTitle = mrTitleElement.innerText;
             const button = document.createElement('a');
             button.id = 'copy-mr-button';
             button.ariaLabel = 'Copy MR Title and URL';
@@ -28,6 +27,7 @@ window.addEventListener('load', () => {
 
 
             button.addEventListener('click', () => {
+                const mrTitle = mrTitleElement.innerText;
                 const markdownLink = `[${mrTitle}](${mrUrl})`;
                 const link = `<a href="${mrUrl}">${mrTitle}</a>`;
                 const html = new Blob([link], { type: "text/html" });
