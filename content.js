@@ -17,6 +17,9 @@ window.addEventListener('load', () => {
             button.id = 'copy-mr-button';
             button.ariaLabel = 'Copy MR Title and URL';
             button.style.marginRight = '5px';
+            button.style.display = 'flex';
+            button.style.alignItems = 'center';
+            button.style.justifyContent = 'center';
             button.className = 'gl-button btn btn-md btn-default gl-hidden sm:gl-block gl-align-self-start has-tooltip js-issuable-edit';
 
             const innerSpan = document.createElement('span');
