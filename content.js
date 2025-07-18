@@ -2,7 +2,7 @@ console.log("Loaded Gitlab MR copy tool");
 
 window.addEventListener('load', () => {
     function addCopyButtonMR() {
-        const actionContainerElement = document.querySelector('.merge-request .detail-page-header .detail-page-header-body');
+        const actionContainerElement = document.querySelector('.merge-request .detail-page-header');
         const mrTitleElement = document.querySelector('.merge-request .detail-page-header .title');
         const mrUrl = window.location.href;
 
