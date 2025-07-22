@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.7
+
+- Fix bug were the bypass button was not hidden on the merge request page in latest Gitlab.
+
 ## 1.6
 - Fix bug where the copy button was not injected on the merge request page.
 - Fix bug that caused to copy an old title when the title was changed after the copy button was injected (such as `'Draft:'` being removed).
