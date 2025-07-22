@@ -53,9 +53,13 @@ window.addEventListener('load', () => {
     function removeBypassButton() {
         // Using a mutation observer to watch for changes in the document as Gitlab renders the MR buttons after the initial load
         const observer = new MutationObserver((mutationsList, observer) => {
-            const button = Array.from(document.querySelectorAll('button')).find(button =>
-                button.querySelector('span')?.textContent.trim() === 'Bypass'
-            );
+            let container = document.querySelector('div[data-testid="merge-check"]');
+
+            if (!container) {
+                return;
+            }
+            let buttons = container.querySelectorAll("button");
+            let button = [...buttons].filter(e => e.innerText === "Bypass")[0];
 
             if (button) {
                 button.style.display = 'none';
