@@ -1,10 +1,15 @@
 console.log("Loaded Gitlab MR copy tool");
 
 window.addEventListener('load', () => {
+    function cleanMrUrl(url) {
+        const match = url.match(/^(.*\/-\/merge_requests\/\d+)/);
+        return match ? match[1] : url;
+    }
+
     function addCopyButtonMR() {
         const actionContainerElement = document.querySelector('.merge-request .detail-page-header');
         const mrTitleElement = document.querySelector('.merge-request .detail-page-header .title');
-        const mrUrl = window.location.href;
+        const mrUrl = cleanMrUrl(window.location.href);
 
         if(mrTitleElement){
             console.log("Title:", mrTitleElement.innerText);
