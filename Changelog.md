@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.8
+
+- Fix for [Gitlab interface redesign](https://docs.gitlab.com/user/interface_redesign/).
+
 ## 1.7
 
 - Fix bug were the bypass button was not hidden on the merge request page in latest Gitlab.
