@@ -80,20 +80,21 @@ window.addEventListener('load', () => {
         const tagContainers = document.querySelectorAll('[data-testid="tag-row"]');
 
         tagContainers.forEach((element) => {
-            const tagLink = element.querySelector('a.gl-font-bold');
+            const tagButton = element.querySelector('button[title="Copy tag name"]');
             const pipelineLink = element.querySelector('[data-testid="ci-icon"]');
-            const tagText = tagLink.innerText;
-            const tagUrl = window.location.protocol + '//' + window.location.hostname + tagLink.getAttribute('href');
+            console.log(tagButton, pipelineLink)
+            const tagText = tagButton.getAttribute('data-clipboard-text');
+            const tagUrl = window.location.protocol + '//' + window.location.hostname + tagButton.getAttribute('href');
 
-            const button = document.createElement('a');
+            const button = document.createElement('button');
 
             button.ariaLabel = 'Copy Tag Title and URL';
+            button.title = 'Copy Tag Title and URL';
+            button.type =  'button';
             button.style.marginLeft = '5px';
-            button.style.paddingTop = '7px';
-            button.style.paddingLeft = '7px';
             button.style.width = '32px';
             button.style.height = '32px';
-            button.className = 'gl-button btn btn-md btn-default gl-hidden sm:gl-block gl-align-self-start has-tooltip js-issuable-edit copy-tag-button';
+            button.className = 'gl-button btn btn-icon btn-md btn-default copy-tag-button';
 
             const innerSpan = document.createElement('span');
             innerSpan.className = 'gl-button-text';
@@ -104,9 +105,9 @@ window.addEventListener('load', () => {
             button.addEventListener('click', () => {
                 const markdownLink = `[${tagText}](${tagUrl}) [Pipeline](${pipelineLink.getAttribute('href')})`;
                 const link = `<a href="${tagUrl}">${tagText}</a> (<a href="${pipelineLink.getAttribute('href')}">Pipeline</a>)`;
-                const html = new Blob([link], { type: "text/html" });
-                const text = new Blob([markdownLink], { type: "text/plain" });
-                const data = new ClipboardItem({ "text/html": html, "text/plain": text });
+                const html = new Blob([link], {type: "text/html"});
+                const text = new Blob([markdownLink], {type: "text/plain"});
+                const data = new ClipboardItem({"text/html": html, "text/plain": text});
 
                 navigator.clipboard.write([data])
                     .then(() => {
@@ -117,7 +118,7 @@ window.addEventListener('load', () => {
                     });
             });
 
-            element.querySelector('.row-fixed-content').append(button);
+            element.querySelector('.gl-grow-0.gl-shrink-0.gl-flex.gl-flex-row.gl-items-center.gl-gap-3.gl-mt-2').append(button);
         });
 
 
