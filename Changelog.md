@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.9
+
+- Fix where the tag url would be copied as `https://yourgitlabhost.comnull`.
+
 ## 1.8
 
 - Fix for [Gitlab interface redesign](https://docs.gitlab.com/user/interface_redesign/).
