@@ -82,10 +82,8 @@ window.addEventListener('load', () => {
         tagContainers.forEach((element) => {
             const tagButton = element.querySelector('button[title="Copy tag name"]');
             const pipelineLink = element.querySelector('[data-testid="ci-icon"]');
-            console.log(tagButton, pipelineLink)
             const tagText = tagButton.getAttribute('data-clipboard-text');
-            const tagUrl = window.location.protocol + '//' + window.location.hostname + tagButton.getAttribute('href');
-
+            const tagUrl = window.location.href + '/' + tagText;
             const button = document.createElement('button');
 
             button.ariaLabel = 'Copy Tag Title and URL';
